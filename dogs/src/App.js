@@ -1,36 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
+import { useQuery } from 'react-query'
+import Loader from 'react-loader-spinner'
+import Nav from './Nav'
+
+import { getRandomDog } from './utils'
+
 import './App.scss';
 
 function App() {
-  const [dogImg, setDogImg] = useState(null)
+  const { data, error, isLoading, isError, isFetching, refetch } = useQuery('dog', getRandomDog, {
+    manual: true
+  })
 
-  const fetchDog = () => {
-    setDogImg('loading')
-    axios.get('https://dog.ceo/api/breeds/image/random')
-      .then(res => setDogImg(res.data.message))
-
+  if (isLoading) {
+    return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
   }
-
-  useEffect(() => {
-    fetchDog()
-  }, [])
+  if (isError) {
+    return <span>Error: {error.message}</span>
+  }
+  if (isFetching) {
+    return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
+  }
 
   return (
     <div className="wrapper">
-      <header>
-        <h2>Dog of the day</h2>
-        <button onClick={() => fetchDog()}>New Dog</button>
-      </header>
+      <Nav refetch={refetch} />
       <section className="container">
-        {
-          dogImg !== 'loading'
-            ? (
-              <img src={dogImg} alt="Dog name" />
-            ) : (
-              <h2>Loading ...</h2>
-            )
-        }
+        <img src={data} alt="Dog name" />
 
       </section>
     </div>
