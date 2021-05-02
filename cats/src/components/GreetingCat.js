@@ -5,17 +5,15 @@ export default function GreetingCat({ match }) {
   const greetingCatUrl = `https://cataas.com/cat/says/${greeting}`;
 
   return (
-    <div>
-      <header>
-        <h3>Greet me</h3>
-        {!greeting ? (
-          <div>Needs a greeting</div>
-        ) : (
-          <div>
-            <img src={greetingCatUrl} width="400px" alt="Cat" />
-          </div>
-        )}
-      </header>
+    <div className="container__header">
+      <h3>Greet me</h3>
+      {!greeting ? (
+        <div>Needs a greeting</div>
+      ) : (
+        <div>
+          <img src={greetingCatUrl} width="400px" alt="Cat" />
+        </div>
+      )}
     </div>
   );
 }

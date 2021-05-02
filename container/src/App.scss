@@ -1,0 +1,32 @@
+.header {
+  background: #f5f5da;
+  padding: 30px;
+  text-align: center;
+  border-radius: 20px;
+
+  &__title {
+    color: #2d3d29;
+  }
+  &__link {
+    text-decoration: none;
+  }
+}
+
+.home,
+.display {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.display {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .cat,
+  .dog {
+    margin: 0 auto;
+  }
+}
