@@ -1,7 +1,11 @@
 import { useState } from 'react'
-import Cats from './Cats'
-import Dogs from './Dogs'
+import PetContainer from './PetContainer'
 import Header from './Header'
+
+const {
+  REACT_APP_DOGS_HOST: dogsHost,
+  REACT_APP_CATS_HOST: catsHost,
+} = process.env;
 
 function Home({ history }) {
   const [input, setInput] = useState("");
@@ -22,14 +26,10 @@ function Home({ history }) {
         <button onClick={handleOnClick}>Greet Me</button>
       </div>
 
-      <div className="display">
+      <div className="container">
         <div className="content">
-          <div className="cat">
-            <Cats />
-          </div>
-          <div className="dog">
-            <Dogs />
-          </div>
+          <PetContainer history={history} name="Cats" host={catsHost} />
+          <PetContainer history={history} name="Dogs" host={dogsHost} />
         </div>
       </div>
     </div>

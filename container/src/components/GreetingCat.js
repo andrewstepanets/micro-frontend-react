@@ -1,3 +1,5 @@
+import { RiArrowGoBackLine } from 'react-icons/ri'
+import { Link } from 'react-router-dom'
 import Header from './Header'
 import MicroFrontend from '../MicroFrontend'
 
@@ -10,6 +12,7 @@ function GreetingCat({ history }) {
       <Header />
       <div className="home">
         <MicroFrontend history={history} host={catsHost} name="Cats" />
+        <Link to="/">Back to the Home Page <RiArrowGoBackLine /></Link>
       </div>
     </div>
   );

@@ -13,20 +13,16 @@
 }
 
 .home,
-.display {
+.container {
   margin-top: 30px;
   width: 100%;
   text-align: center;
 }
 
-.display {
+.container {
   .content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-  }
-  .cat,
-  .dog {
-    margin: 0 auto;
   }
 }
