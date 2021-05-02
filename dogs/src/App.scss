@@ -1,17 +1,20 @@
-.button__container {
-  margin-bottom: 20px;
-  button {
-    cursor: pointer;
-  }
-}
-.img__container {
+.container__header {
   display: grid;
   place-content: center;
-  overflow: hidden;
-  width: 400px;
-  height: 350px;
-
-  img {
-    width: 100%;
+  .button__container {
+    margin-bottom: 20px;
+    button {
+      cursor: pointer;
+    }
+  }
+  .img__container {
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+    width: 400px;
+    height: 350px;
+    img {
+      width: 100%;
+    }
   }
 }
