@@ -27,10 +27,8 @@ function Home({ history }) {
       </div>
 
       <div className="container">
-        <div className="content">
-          <PetContainer history={history} name="Cats" host={catsHost} />
-          <PetContainer history={history} name="Dogs" host={dogsHost} />
-        </div>
+        <PetContainer history={history} name="Cats" host={catsHost} />
+        <PetContainer history={history} name="Dogs" host={dogsHost} />
       </div>
     </div>
   );
