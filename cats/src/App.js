@@ -7,7 +7,7 @@ import PageNotFound from "./components/PageNotFound";
 
 
 import { QueryClientProvider, QueryClient } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
+// import { ReactQueryDevtools } from 'react-query/devtools'
 
 import "./App.scss";
 
@@ -25,7 +25,7 @@ function App({ history = defaultHistory }) {
           <Route path="*" component={PageNotFound} />
         </Switch>
       </Router>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 }

@@ -1,6 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import { useInfiniteQuery } from 'react-query'
+import axios from 'axios'
+
 
 function MicroFrontend({ name, host, history }) {
+
+
   useEffect(() => {
     const scriptId = `micro-frontend-script-${name}`;
 
@@ -14,8 +19,8 @@ function MicroFrontend({ name, host, history }) {
       return;
     }
 
-    fetch(`${host}/asset-manifest.json`)
-      .then((res) => res.json())
+    axios.get(`${host}/asset-manifest.json`)
+      .then(res => res.data)
       .then((manifest) => {
         const script = document.createElement("script");
         script.id = scriptId;
@@ -30,9 +35,11 @@ function MicroFrontend({ name, host, history }) {
     return () => {
       window[`unmount${name}`] && window[`unmount${name}`](`${name}-container`);
     };
-  });
+  })
 
-  return <main id={`${name}-container`} />;
+  return <main id={`${name}-container`} />
+
+
 }
 
 MicroFrontend.defaultProps = {
